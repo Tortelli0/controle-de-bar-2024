@@ -1,0 +1,40 @@
+﻿@{
+    var garcom = ViewBag.Garcom;
+
+    Layout = "_Layout";
+    ViewBag.Title = "Edição de Garçom";
+}
+
+<div class="row mt-3">
+    <div class="col-lg-6">
+        <form class="d-grid gap-4" action="/garcom/editar/@garcom.Id" method="post">
+
+            <div class="mt-2">
+                <label class="control-label fw-semibold">Nome do Garçom:</label>
+                <input class="form-control" type="text" name="Nome" value="@garcom.Nome" />
+            </div>
+
+            <div class="form-check mt-2">
+                <input disabled class="form-check-input" @garcom.Cpf name="Cpf" type="checkbox" value="true">
+                <label class="form-check-label fw-semibold" for="Cpf">
+                    Cpf
+                </label>
+            </div>
+
+
+            <div class="mt-2 d-grid gap-2 d-md-block">
+                <button class="btn btn-primary px-5">
+                    <i class="bi bi-floppy-fill me-1"></i>
+                    Gravar
+                </button>
+
+                <a class="btn btn-secondary px-5" href="/mesa/listar">
+                    <i class="bi bi-arrow-return-left me-1"></i>
+                    Voltar
+                </a>
+            </div>
+
+        </form>
+
+    </div>
+</div>

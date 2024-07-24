@@ -37,4 +37,70 @@ public class GarcomController : Controller
 
         return View("mensagens");
     }
+
+    public ViewResult Editar(int id)
+    {
+        ControleDeBarDbContext db = new ControleDeBarDbContext();
+        IRepositorioGarcom repositorioGarcom = new RepositorioGarcomEmOrm(db);
+
+        Garcom garcom = repositorioGarcom.SelecionarPorId(id);
+
+        ViewBag.Garcom = garcom;
+
+        return View();
+    }
+
+    [HttpPost]
+    public ViewResult Editar(int id, Garcom garcomAtualizado)
+    {
+        ControleDeBarDbContext db = new ControleDeBarDbContext();
+        IRepositorioGarcom repositorioGarcom = new RepositorioGarcomEmOrm(db);
+
+        Garcom garcomOriginal = repositorioGarcom.SelecionarPorId(id);
+
+        repositorioGarcom.Editar(garcomOriginal, garcomAtualizado);
+
+        ViewBag.Mensagem = $"O registro com o ID {garcomOriginal.Id} foi editado com sucesso!";
+        ViewBag.Link = "/mesa/listar";
+
+        return View("mensagens");
+    }
+
+    public ViewResult Excluir(int id)
+    {
+        ControleDeBarDbContext db = new ControleDeBarDbContext();
+        IRepositorioGarcom repositorioGarcom = new RepositorioGarcomEmOrm(db);
+
+        Garcom garcom = repositorioGarcom.SelecionarPorId(id);
+
+        ViewBag.Garcom = garcom;
+
+        return View();
+    }
+
+    [HttpPost, ActionName("excluir")]
+    public ViewResult ExcluirConfirmado(int id)
+    {
+        ControleDeBarDbContext db = new ControleDeBarDbContext();
+        IRepositorioGarcom repositorioGarcom = new RepositorioGarcomEmOrm(db);
+
+        Garcom garcom = repositorioGarcom.SelecionarPorId(id);
+
+        ViewBag.Mensagem = $"O registro com o ID {garcom.Id} foi excluído com sucesso!";
+        ViewBag.Link = "/mesa/listar";
+
+        return View("mensagens");
+    }
+
+    public ViewResult Detalhes(int id)
+    {
+        ControleDeBarDbContext db = new ControleDeBarDbContext();
+        IRepositorioGarcom repositorioGarcom = new RepositorioGarcomEmOrm(db);
+
+        Garcom garcom = repositorioGarcom.SelecionarPorId(id);
+
+        ViewBag.Garcom = garcom;
+
+        return View();
+    }
 }

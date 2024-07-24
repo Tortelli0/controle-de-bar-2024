@@ -1,0 +1,43 @@
+﻿@{
+	Layout = "_Layout";
+	ViewBag.Title = "Cadastrar Produto";
+}
+
+<div class="row mt-3">
+	<div class="col-lg-6">
+		<form class="d-grid gap-4" action="/produto/inserir" method="post">
+
+			<div class="mt-2">
+				<label class="control-label fw-semibold">Nome do Produto:</label>
+				<input class="form-control" type="text" name="nome" />
+			</div>
+            
+			<div class="mt-2">
+				<label class="control-label fw-semibold">Valor do Produto:</label>
+				<input class="form-control" type="text" name="valor" id="valor"/>
+			</div>
+
+			<div class="mt-2 d-grid gap-2 d-md-block">
+				<button class="btn btn-primary px-5">
+					<i class="bi bi-floppy-fill me-1"></i>
+					Gravar
+				</button>
+
+				<a class="btn btn-secondary px-5" href="/garcom/listar">
+					<i class="bi bi-arrow-return-left me-1"></i>
+					Voltar
+				</a>
+
+			</div>
+		</form>
+
+	</div>
+</div>
+
+@section Scripts {
+	<script>
+        $(document).ready(function () {
+            $("#valor").mask("#.##0,00", { reverse: true })
+        });
+    </script>
+}

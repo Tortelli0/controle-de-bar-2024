@@ -1,0 +1,32 @@
+﻿@{
+	var produto = ViewBag.Garcom;
+	Layout = "_Layout";
+	ViewBag.Title = "Exclusão de Produto";
+}
+
+<div class="row mt-3">
+	<div class="col-lg-6 d-grid gap-2">
+		<label class="fs-5"><strong>Produto:</strong> @produto.Nome</label>
+
+		<label><strong>Id:</strong> [@produto.Id]</label>
+		<label><strong>Nome:</strong> [@produto.Nome]</label>
+		<label><strong>Valor:</strong> [@produto.Valor]</label>
+
+		<p class="text-bg-danger p-3 rounded fs-5 mt-2">
+			Deseja realmente confirmar a exclusão? Não será possível recuperar os dados excluídos posteriormente.
+		</p>
+
+		<form class="mt-2 d-grid gap-2 d-md-block" action="/produto/excluir/@produto.Id" method="post">
+			<button class="btn btn-danger px-5">
+				<i class="bi bi-trash-fill me-1"></i>
+				Excluir
+			</button>
+
+			<a class="btn btn-secondary px-5" href="/produto/listar">
+				<i class="bi bi-arrow-return-left me-1"></i>
+				Voltar
+			</a>
+
+		</form>
+	</div>
+</div>

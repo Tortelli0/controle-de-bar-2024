@@ -7,6 +7,26 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="obj\**" />
+    <Content Remove="obj\**" />
+    <EmbeddedResource Remove="obj\**" />
+    <None Remove="obj\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Conta\detalhes.cshtml" />
+    <None Include="Views\Conta\editar.cshtml" />
+    <None Include="Views\Conta\excluir.cshtml" />
+    <None Include="Views\Conta\inserir.cshtml" />
+    <None Include="Views\Conta\listar.cshtml" />
+    <None Include="Views\Produto\detalhes.cshtml" />
+    <None Include="Views\Produto\editar.cshtml" />
+    <None Include="Views\Produto\excluir.cshtml" />
+    <None Include="Views\Produto\inserir.cshtml" />
+    <None Include="Views\Produto\listar.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ControleDeBar.Dominio\ControleDeBar.Dominio.csproj" />
     <ProjectReference Include="..\ControleDeBar.Infra.Orm\ControleDeBar.Infra.Orm.csproj" />
   </ItemGroup>

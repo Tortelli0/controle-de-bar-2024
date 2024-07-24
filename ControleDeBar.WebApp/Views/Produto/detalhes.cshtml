@@ -1,0 +1,24 @@
+﻿@{
+	var produto = ViewBag.Produto;
+
+	Layout = "_Layout";
+	ViewBag.Title = "Detalhes de Produto";
+}
+
+<div class="row">
+	<div class="col-lg-6 d-grid gap-2 d-md-block">
+
+		<div class="d-grid">
+			<label class="fs-5"><strong>Produto:</strong> @produto.Nome</label>
+
+			<label><strong>Id:</strong> [@produto.Id]</label>
+			<label><strong>Nome:</strong> [@produto.Nome]</label>
+			<label><strong>Valor:</strong> [@produto.Valor]</label>
+		</div>
+
+		<a href="/produto/listar" class="btn btn-secondary px-5 mt-4">
+			<i class="bi bi-arrow-return-left me-1"></i>
+			Voltar
+		</a>
+	</div>
+</div>
