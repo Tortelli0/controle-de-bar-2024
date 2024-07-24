@@ -1,1 +1,29 @@
-﻿
+﻿@{
+    var conta = ViewBag.Conta;
+
+    Layout = "_Layout";
+    ViewBag.Title = "Detalhes de Conta";
+}
+
+<div class="row">
+    <div class="col-lg-6 d-grid gap-2 d-md-block">
+
+        <div class="d-grid">
+            <label class="fs-5"><strong>Conta:</strong> @conta.Titular</label>
+
+            <label><strong>Id:</strong> [@conta.Id]</label>
+            <label><strong>Titular:</strong> [@conta.Titular]</label>
+            <label><strong>Mesa:</strong> [@conta.Mesa]</label>
+            <label><strong>Garçom:</strong> [@conta.Garcom]</label>
+            <label><strong>Abertura:</strong> [@conta.Abertura]</label>
+            <label><strong>Fechamento:</strong> [@conta.Fechamento]</label>
+            <label><strong>Esta Aberta:</strong> [@conta.EstaAberta]</label>
+            <label><strong>Pedidos:</strong> [@conta.Pedidos]</label>
+        </div>
+
+        <a href="/conta/listar" class="btn btn-secondary px-5 mt-4">
+            <i class="bi bi-arrow-return-left me-1"></i>
+            Voltar
+        </a>
+    </div>
+</div>
