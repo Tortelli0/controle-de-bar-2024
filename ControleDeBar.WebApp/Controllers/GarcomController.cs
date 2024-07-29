@@ -61,7 +61,7 @@ public class GarcomController : Controller
         repositorioGarcom.Editar(garcomOriginal, garcomAtualizado);
 
         ViewBag.Mensagem = $"O registro com o ID {garcomOriginal.Id} foi editado com sucesso!";
-        ViewBag.Link = "/mesa/listar";
+        ViewBag.Link = "/garcom/listar";
 
         return View("mensagens");
     }
@@ -87,7 +87,7 @@ public class GarcomController : Controller
         Garcom garcom = repositorioGarcom.SelecionarPorId(id);
 
         ViewBag.Mensagem = $"O registro com o ID {garcom.Id} foi excluído com sucesso!";
-        ViewBag.Link = "/mesa/listar";
+        ViewBag.Link = "/garcom/listar";
 
         return View("mensagens");
     }

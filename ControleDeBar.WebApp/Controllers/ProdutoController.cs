@@ -9,8 +9,8 @@ public class ProdutoController : Controller
 {
     public ViewResult Listar()
     {
-        ControleDeBarDbContext db = new ControleDeBarDbContext();
-        IRepositorioProduto repositorioProduto = new RepositorioProdutoEmOrm(db);
+        var db = new ControleDeBarDbContext();
+        var repositorioProduto = new RepositorioProdutoEmOrm(db);
 
         List<Produto> produtos = repositorioProduto.SelecionarTodos();
 
@@ -27,8 +27,8 @@ public class ProdutoController : Controller
     [HttpPost]
     public ViewResult Inserir(Produto novoProduto)
     {
-        ControleDeBarDbContext db = new ControleDeBarDbContext();
-        IRepositorioProduto repositorioProduto = new RepositorioProdutoEmOrm(db);
+        var db = new ControleDeBarDbContext();
+        var repositorioProduto = new RepositorioProdutoEmOrm(db);
 
         repositorioProduto.Inserir(novoProduto);
 
@@ -40,10 +40,10 @@ public class ProdutoController : Controller
 
     public ViewResult Editar(int id)
     {
-        ControleDeBarDbContext db = new ControleDeBarDbContext();
-        IRepositorioProduto repositorioProduto = new RepositorioProdutoEmOrm(db);
+        var db = new ControleDeBarDbContext();
+        var repositorioProduto = new RepositorioProdutoEmOrm(db);
 
-        Produto produto = repositorioProduto.SelecionarPorId(id);
+        var produto = repositorioProduto.SelecionarPorId(id);
 
         ViewBag.Produto = produto;
 
@@ -53,10 +53,10 @@ public class ProdutoController : Controller
     [HttpPost]
     public ViewResult Editar(int id, Produto produtoAtualizado)
     {
-        ControleDeBarDbContext db = new ControleDeBarDbContext();
-        IRepositorioProduto repositorioProduto = new RepositorioProdutoEmOrm(db);
+        var db = new ControleDeBarDbContext();
+        var repositorioProduto = new RepositorioProdutoEmOrm(db);
 
-        Produto produtoOriginal = repositorioProduto.SelecionarPorId(id);
+        var produtoOriginal = repositorioProduto.SelecionarPorId(id);
 
         repositorioProduto.Editar(produtoOriginal, produtoAtualizado);
 
@@ -68,10 +68,10 @@ public class ProdutoController : Controller
 
     public ViewResult Excluir(int id)
     {
-        ControleDeBarDbContext db = new ControleDeBarDbContext();
-        IRepositorioProduto repositorioProduto = new RepositorioProdutoEmOrm(db);
+        var db = new ControleDeBarDbContext();
+        var repositorioProduto = new RepositorioProdutoEmOrm(db);
 
-        Produto produto = repositorioProduto.SelecionarPorId(id);
+        var produto = repositorioProduto.SelecionarPorId(id);
 
         ViewBag.Produto = produto;
 
@@ -81,10 +81,10 @@ public class ProdutoController : Controller
     [HttpPost, ActionName("excluir")]
     public ViewResult ExcluirConfirmado(int id)
     {
-        ControleDeBarDbContext db = new ControleDeBarDbContext();
-        IRepositorioProduto repositorioProduto = new RepositorioProdutoEmOrm(db);
+        var db = new ControleDeBarDbContext();
+        var repositorioProduto = new RepositorioProdutoEmOrm(db);
 
-        Produto produto = repositorioProduto.SelecionarPorId(id);
+        var produto = repositorioProduto.SelecionarPorId(id);
 
         ViewBag.Mensagem = $"O registro com o ID {produto.Id} foi excluído com sucesso!";
         ViewBag.Link = "/produto/listar";
@@ -94,10 +94,10 @@ public class ProdutoController : Controller
 
     public ViewResult Detalhes(int id)
     {
-        ControleDeBarDbContext db = new ControleDeBarDbContext();
-        IRepositorioProduto repositorioProduto = new RepositorioProdutoEmOrm(db);
+        var db = new ControleDeBarDbContext();
+        var repositorioProduto = new RepositorioProdutoEmOrm(db);
 
-        Produto produto = repositorioProduto.SelecionarPorId(id);
+        var produto = repositorioProduto.SelecionarPorId(id);
 
         ViewBag.Produto = produto;
 

@@ -1,5 +1,6 @@
-﻿@{
-    var contas = ViewBag.Contas;
+﻿@using ControleDeBar.Dominio.ModuloConta
+@{
+    List<Conta> contas = ViewBag.Contas;
 
     Layout = "_Layout";
     ViewBag.Title = "Listagem de Contas";
